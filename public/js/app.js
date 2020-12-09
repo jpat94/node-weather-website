@@ -15,7 +15,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     // Only works for client side JS. Fetch data from the url then 
     // perform the function
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = '';
