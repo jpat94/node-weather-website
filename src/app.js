@@ -45,7 +45,7 @@ app.get('/about', (req, res) => {
         title: 'About',
         message: 'This is a simple web app developed during a NodeJS course taught by Andrew Mead on UDemy.',
         credit: 'This app utilizes Weatherstack and Mapbox API.',
-        gitHub: 'For information about upcoming features, check out my GitHub repository!',
+        gitHub: 'For information about upcoming features, check out my GitHub ',
         name
     });
 });
