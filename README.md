@@ -1,6 +1,8 @@
 # node-weather-website
 A website that fetches weather for a location entered by the user.
 
+Utilizes JavaScript, NodeJS, Handlebars, HTML, and CSS.
+
 # Instructions
 In order to get weather for the current location, simply enter in
 your address, zip code, or city. The app will provide you with the
