@@ -18,4 +18,4 @@ fun features to this site just to keep practicing my skills. Planned features in
 - Night mode (I hate bright white screens on web pages)
 - Simple graphics to display the current weather conditions
 - Location based weather that will request the users location so they don't have to type it in
-- Improved UI to make the web page look more modern
+- Improved UI to make the website look a bit cleaner
