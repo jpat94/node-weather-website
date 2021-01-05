@@ -25,6 +25,7 @@ app.use(express.static(publicDirectoryPath));
 // Name of the author
 const name = 'Justin Patterson';
 
+// Renders the index view for the landing page
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
@@ -40,6 +41,7 @@ app.get('/old-index', (req, res) => {
     });
 });
 
+// Renders the about page that leads to the github repository and the original website built during the UDemy course
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
@@ -58,6 +60,7 @@ app.get('/old-about', (req, res) => {
     });
 });
 
+// Renders the help page which at the moment doesn't have any real content
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
@@ -75,14 +78,17 @@ app.get('/old-help', (req, res) => {
     });
 });
 
-// Weather page
+// Renders the weather page where a user can enter the address, city, or zip code to get current weather data
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
             error: 'You must enter an address.'
         });
     }
-
+    
+    // Utilizes the geocode and forecast utility; geocode takes the entered information and turns it into a latitude and longitude
+    // that is then used by forecast to provide current weather data for the provided location or return an error if an invalid
+    // address was provided
     geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({ error });
@@ -100,6 +106,7 @@ app.get('/weather', (req, res) => {
     })
 });
 
+// Renders a 404 error page in case a user tries to navigate past the help page into a help article that does not exist
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -117,7 +124,7 @@ app.get('/old-help/*', (req, res) => {
     });
 });
 
-// 404 Pages; has to come last in the app.get list
+// 404 Pages for invalid addresses manually entered in by the user
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -126,6 +133,7 @@ app.get('*', (req, res) => {
     });
 });
 
+// Code to signal that the server is up and running
 app.listen(port, () => {
     console.log('Server is up on port ' + port + '.');
 });
